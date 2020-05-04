@@ -19,10 +19,19 @@
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
+      <div class="post-comments">
+       <vue-disqus
+      shortname="manascode-com"
+      :identifier="$page.post.title"
+    ></vue-disqus>
+    </div>
     </div>
 
     <div class="post-comments">
       <!-- Add comment widgets here -->
+      <div class="post-comments">
+ 
+</div>
     </div>
 
     <Author class="post-author" />
