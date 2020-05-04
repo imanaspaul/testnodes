@@ -1,0 +1,51 @@
+// This is where project configuration and plugin options are located.
+// Learn more: https://gridsome.org/docs/config
+
+// Changes here requires a server restart.
+// To restart press CTRL + C in terminal and run `gridsome develop`
+
+module.exports = {
+  siteName: 'manascode',
+  siteDescription: 'Manascode is a personal blog , from where you can learn about Python, Django, Javascript and Vue.js from scratch . Manascode provides you in detail tutorials to learn something in easy way. Follow us to be a full stack web developer in 2020.',
+
+  templates: {
+    Post: '/:title',
+    Tag: '/tag/:id'
+  },
+
+  plugins: [
+    {
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'Post',
+        path: 'content/posts/*.md',
+        refs: {
+          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
+          tags: {
+            typeName: 'Tag',
+            create: true
+          }
+        }
+      }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-141182931-5'
+      }
+    }
+  ],
+
+  transformers: {
+    //Add markdown support to all file-system sources
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+      plugins: [
+        '@gridsome/remark-prismjs'
+      ]
+    }
+  }
+}
