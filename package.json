@@ -1,7 +1,7 @@
 {
   "name": "manascode-blog",
   "private": true,
-  "engines" : { "node" : ">=8.10.0" },
+  "engines" : { "node" : "10.21.0" },
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
