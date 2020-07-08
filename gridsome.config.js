@@ -6,14 +6,31 @@
 
 module.exports = {
   siteName: 'manascode',
-  siteDescription: 'Manascode is a personal blog , from where you can learn about Python, Django, Javascript and Vue.js from scratch . Manascode provides you in detail tutorials to learn something in easy way. Follow us to be a full stack web developer in 2020.',
-
+  siteDescription: 'Manascode is a personal blog , from where you can learn about Python tutorial, Django tutorial, Javascript and Vue.js from scratch . Manascode provides you in detail tutorials to learn something in easy way. Follow us to be a full stack web developer in 2020.',
+  siteUrl: 'https://manascode.com',
   templates: {
     Post: '/:title',
     Tag: '/tag/:id'
   },
 
   plugins: [
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000, // default
+        exclude: ['404'],
+        config: {
+          '/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          },
+          '/about': {
+            changefreq: 'monthly',
+            priority: 0.7
+          }
+        }
+      }
+    },
     {
       // Create posts from markdown files
       use: '@gridsome/source-filesystem',

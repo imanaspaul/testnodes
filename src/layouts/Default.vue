@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div class="support" v-if="showNavbar">
+      <div class="text">
+         <a href="https://ko-fi.com/manascode"> 🔔 If you found this blog helpfull, Please support us to bare the hosting cost</a> 
+      </div>
+      <a href="https://ko-fi.com/manascode" class="kofi">Suppor us on Ko-fi</a>
+    </div>
     <Menu/>
     <header class="header" v-if="showNavbar">
       <div class="header__left">
@@ -81,7 +87,7 @@ export default {
   align-items: center;
   min-height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
-  top:0;
+  top:5%;
   z-index: 10;
 
   &__left,
@@ -118,6 +124,42 @@ export default {
   a {
     color: var(--link-color);
     padding-left: 1rem;
+  }
+}
+.support{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 5rem;
+  color: white!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 45, 194);
+  background-color: rgb(8, 8, 8);
+  background-color: #33CE38;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  a{
+    color: white;
+  }
+
+  .kofi{
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    //Make header sticky for large screens
+   .kofi{
+    display: block;
+    background-color: #fff;
+    color: #33CE38;
+    padding: 2px 8px;
+    margin-left: 20px;
+    border-radius: 20px;
+    font-size: 16px!important;
+    }
   }
 }
 </style>

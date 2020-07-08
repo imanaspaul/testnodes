@@ -14,7 +14,7 @@
 
 <page-query>
 query {
-  posts: allPost(filter: { published: { eq: true }}) {
+  posts : allPost(filter: { published: { eq: true }}) {
     edges {
       node {
         id

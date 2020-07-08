@@ -2,12 +2,12 @@
 title: Django Ecommerce Website Tutorial Part One
 date: 2019-08-21 
 published: true
-tags: ['django 2.2', 'Django Ecommerce', 'python']
+tags: ['django 2.2', 'Django Ecommerce', 'python', 'Django Ecommerce Tutorial']
 series: false
 cover_image: ./uploads/2019/08/Dajngo-ecommerce-website.jpg
-social_img: https://drive.google.com/file/d/15wFubjibpENtVix778vbKrOjDAtPQ7O2/view?usp=sharing
+social_img: https://res.cloudinary.com/manascode/image/upload/v1590809302/manascode.com/Dajngo-ecommerce-website.e978dc2.cd3d24911a886833e7b008130aa097a7_bxd7zb.jpg
 canonical_url: true
-description: "After getting a lot of request of Django Ecommerce website from previous posts that we have on our website. Now we are going to start new series of posts about Ecommerce Website with Django."
+description: "After getting a lot of request of Django Ecommerce website from previous posts that we have on our website. Now we are going to start new series of posts about Ecommerce Website with Django. By making an eCommerce website with Django will help you to understand a lots of inbuilt methods in Django. We can write the whole process in one post but it will be a long post to go through top to bottom. So it’s better to go through step by step."
 ---
 After getting a lot of request of **Django Ecommerce website** from previous posts that we have on our website. Now we are going to start new series of posts about **Ecommerce Website with Django**.
 

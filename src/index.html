@@ -8,6 +8,18 @@
     medianet_versionId = "3121199";
     </script>
     <script src="//contextual.media.net/dmedianet.js?cid=8CU1R4517" async="async"></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "3022ba98-d262-4da2-bb12-ba12ce916d1d",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    </script>
     <style>
      .add {
         position: fixed;

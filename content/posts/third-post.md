@@ -5,7 +5,7 @@ published: true
 tags: ['django 2.2', 'Django Ecommerce', 'python']
 series: false
 cover_image: ./uploads/2019/09/Django-ecommerce-part-ii-thumnail.jpg
-social_img: https://drive.google.com/file/d/1hJdemSqpWkMoHOfO8aNo9Lsq7W3SeGDb/view?usp=sharing
+social_img: https://res.cloudinary.com/manascode/image/upload/v1590809609/manascode.com/Django-ecommerce-part-ii-thumnail.dc9ac99.b38b89c7913a4b20caae201b3c72f7e4_n4uqom.jpg
 canonical_url: true
 description: "In this part two, Django Ecommerce tutorial we are going to learn Managing the Cart Items, Orders and Registration Using Django Allauth. manascode.com"
 ---

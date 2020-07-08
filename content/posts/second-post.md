@@ -5,7 +5,7 @@ published: true
 tags: ['django 2.2', 'Django Ecommerce', 'python']
 series: false
 cover_image: ./uploads/2020/01/Build-a-sAAS-APPLICATION-uSING-DJNAGO-1.jpg
-social_img: https://drive.google.com/file/d/1QxIwiVt7A8srwEaB4_xXKZa6MYWx0Cwd/view?usp=sharing
+social_img: https://res.cloudinary.com/manascode/image/upload/v1590809512/manascode.com/Build-a-sAAS-APPLICATION-uSING-DJNAGO-1.e978dc2.45068006103170ce42bf169a58571894_b03pdh.jpg
 canonical_url: true
 description: "In this tutorial serial we are going to make a SaaS Application using Django, not only code that we will also deploy the SaaS Application to Heroku"
 ---
