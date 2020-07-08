@@ -407,8 +407,7 @@ Another thing we wanted to do is mark the Cart Items as purchased. So first we a
 
 We are just saving the order object and cart objects then render the **`charge.html`** page. You can design the charge page anything you want. But I like to make things much simple to learn.
 
-<div class="hcb_wrap">```
-<pre class="prism line-numbers lang-html" data-file="checkout/charge.html" data-lang="HTML">```
+```html
 {% extends 'products/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -441,7 +440,8 @@ def oderView(request):
 		return redirect('/')
 	return render(request, 'checkout/order.html', context)
 ```
-In this view we are using try and except to handle the errors. Now create new html file to show the order they have. In our case we are calling as **`order.html`**
+In this view we are using try and except to handle the errors.
+Now create new html file to show the order they have. In our case we are calling as **`order.html`**
 
 ```html
 {% extends 'products/base.html' %}
