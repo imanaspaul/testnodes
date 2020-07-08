@@ -495,7 +495,9 @@ In this view we are using try and except to handle the errors. Now create new ht
 ```
 After all these successfully done. The website should look like this.
 
-![Order manascode.com](./uploads/2019/10/order-manascode-1024x454.jpg) We are using a lots of Function based views but I think that would help you understand the logic in much easier way. But don’t worry we are going to convert this into Class Based View soon. You can take the challenge to convert these function based view to Class based views and make a pull request our Github repo.
+![Order manascode.com](./uploads/2019/10/order-manascode-1024x454.jpg) 
+
+We are using a lots of Function based views but I think that would help you understand the logic in much easier way. But don’t worry we are going to convert this into Class Based View soon. You can take the challenge to convert these function based view to Class based views and make a pull request our Github repo.
 
 To get more clear reference make sure you clone the or fork the repo to you github.
 
