@@ -1,5 +1,5 @@
 {
-  "name": "gridsome-starter-blog",
+  "name": "manascode-blog",
   "private": true,
   "engines" : { "node" : ">=12.13.0" },
   "scripts": {
