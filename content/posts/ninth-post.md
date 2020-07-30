@@ -17,11 +17,7 @@ Before we start this part, let me tell you one thing for this series you have to
 
 So if you haven’t go through those tutorial then I would suggest you to practice them before you start this one. Here are those **written tutorial about Django**.
 
-- [Adding search filters in Django eCommerce website](http://manascode.com/adding-search-filters-in-django-ecommerce-website/)
-- [Real world SAAS application in Django tutorial](http://manascode.com/real-world-saas-application-in-django-tutorial/)
-- [Build a SaaS Application in Django 3.0| SaaS Series](http://manascode.com/build-a-saas-application-in-django-3-saas-series/)
-- [Stripe Payment Gateway Integration in Django eCommerce Website](http://manascode.com/stripe-payment-gateway-integration-in-django-ecommerce-website/)
-- [Django eCommerce tutorial part two](http://manascode.com/django-ecommerce-tutorial-part-two-django-allauth/)
+
 
 So let’s start with the plan first and then we will go write some codes to make our hands dirty to Build SAAS application in Django . 😃🎉
 
@@ -162,6 +158,7 @@ In the urls.py file we have wrote the app\_name cause it’s required to have to
 If you noticed carefully, I have used **`id`** parameter in the url. It will help us to know which user’s form has been submitted. Depending on that request we will going to notify to the corresponding user. I hope till now all it makes sense. Check the below image it will make more sense to you.
 
 ![Building a realworld application in Django written tutorial](./uploads/2020/01/real-world-project-in-django-tuorial-manacode.jpg)
+
 Building SAAS application in Django After submitting the form, the forms data will be passed to the url as url parameters. We will going to grab this data to work with. Later on we will implement **REST API endpoint** to make the application more advance.
 
 before going further in the view we now need to have the authentication added in our application. So let’s get into the next step.

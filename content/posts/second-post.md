@@ -1,9 +1,9 @@
 ---
-title: Build a SaaS Application in Django 3.0| SaaS Series
+title: Build a SaaS Application in Django 3.0
 date: 2020-01-08
 published: true
-tags: ['django 2.2', 'Django Ecommerce', 'python']
-series: false
+tags: ['django 2.2', 'python']
+series: true
 cover_image: ./uploads/2020/01/Build-a-sAAS-APPLICATION-uSING-DJNAGO-1.jpg
 social_img: https://res.cloudinary.com/manascode/image/upload/v1590809512/manascode.com/Build-a-sAAS-APPLICATION-uSING-DJNAGO-1.e978dc2.45068006103170ce42bf169a58571894_b03pdh.jpg
 canonical_url: true

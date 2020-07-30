@@ -37,6 +37,25 @@
     <Author class="post-author" />
   </Layout>
 </template>
+<page-query>
+query Post ($id: ID!) {
+  post: post (id: $id) {
+    title
+    path
+    social_img
+    date (format: "D. MMMM YYYY")
+    timeToRead
+    tags {
+      id
+      title
+      path
+    }
+    description
+    content
+    cover_image (width: 860, blur: 10)
+  }
+}
+</page-query>
 
 <script>
 import PostMeta from '~/components/PostMeta'
@@ -82,25 +101,7 @@ export default {
 }
 </script>
 
-<page-query>
-query Post ($id: ID!) {
-  post: post (id: $id) {
-    title
-    path
-    social_img
-    date (format: "D. MMMM YYYY")
-    timeToRead
-    tags {
-      id
-      title
-      path
-    }
-    description
-    content
-    cover_image (width: 860, blur: 10)
-  }
-}
-</page-query>
+
 
 <style lang="scss">
 .post-title {
