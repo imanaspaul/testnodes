@@ -54,8 +54,7 @@ export default {
       thumnail : null,
     }
   },
-  metaInfo () {
-    return {
+  metaInfo : {
       title: this.$page.post.title,
       meta: [
         {
@@ -80,7 +79,6 @@ export default {
         }
       ]
     }
-  },
 }
 </script>
 
