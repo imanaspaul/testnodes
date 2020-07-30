@@ -4251,7 +4251,7 @@ gridsome-plugin-disqus@^1.0.3:
   resolved "https://registry.yarnpkg.com/gridsome-plugin-disqus/-/gridsome-plugin-disqus-1.0.3.tgz#8ba2066f9683fd8c0c153ef6c341d8e826a65d7e"
   integrity sha512-boU9zgvqA2AhNzh8cSbUm9iktoZfm8pJFk/hnVvACqKBmPnFjXzRUrfWY3B5xBldR1aw3rfuWQHbF++gqG+5xA==
 
-gridsome@^0.7.19:
+gridsome@^0.7.0:
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.7.19.tgz#3d67fb66c80b53101c750e870b076b3694152ec9"
   integrity sha512-KjvkcIyooaDyjIx11LvK7TLRIqCjTXV3D1C3MgmX0eEO0VnucAynX88b/IWlHmB3ytt1cUkbFaqqpTbO4a/z0Q==
