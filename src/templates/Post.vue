@@ -19,12 +19,10 @@
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
-      <div class="post-comments">
-       <vue-disqus
-      shortname="manascode-com"
-      :identifier="$page.post.title"
-    ></vue-disqus>
-    </div>
+      <div class="loading"  v-if="!loading" >
+        <button @click="setLoading()" class="laodcomment">Load comments / Write comments</button>
+      </div>
+      <Comment v-else/>
     </div>
 
     <div class="post-comments">
@@ -47,14 +45,22 @@ export default {
   components: {
     Author,
     PostMeta,
-    PostTags
+    PostTags,
+    Comment: () => import('~/components/Comment.vue')
   },
   data(){
     return {
       thumnail : null,
+      loading: false
     }
   },
-  metaInfo : {
+  methods: {
+    setLoading(){
+      this.loading = true
+    }
+  },
+  metaInfo () {
+    return {
       title: this.$page.post.title,
       meta: [
         {
@@ -78,6 +84,7 @@ export default {
           content : this.$page.post.description
         }
       ]
+    }
   },
 }
 </script>
@@ -103,6 +110,15 @@ query Post ($id: ID!) {
 </page-query>
 
 <style lang="scss">
+.loading{
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px;
+  margin-top: 20px;
+}
+.laodcomment{
+  padding: 10px 15px;
+}
 .post-title {
   padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
   text-align: center;

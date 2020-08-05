@@ -10,8 +10,7 @@ canonical_url: true
 description: "In this tutorial we are going to cover how you can search filter to your Django eCommerce website. We also fixed some bugs of our previous tutorial."
 ---
 
-<Avatar>
-
+<Author/>
 
 A lot of you guys requested to make the next part of **Django ecommerce tutorial series**. So in this part, we are going to cover the adding search filter and fix some bugs in django eCommerce website.
 
