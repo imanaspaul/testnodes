@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
-media_folder: "content/posts/uploads"
+media_folder: "./uploads"
 
 collections:
 - name: "blog" # Used in routes, e.g., /admin/collections/blog
@@ -16,7 +16,7 @@ collections:
     - {label: "Description", name: "description", widget: "string"}
     - {label: "Social image", name: "social_img", widget: "string"}
     - {label: "Published", name: "published", widget: "boolean", default: true}
-    - {label: "Date", name: "date", widget: 'date', format: 'YYYY MM DD'}
+    - {label: "Date", name: "date", widget: "string"}
     - {label: "Body", name: "body", widget: "markdown"}
 
 
