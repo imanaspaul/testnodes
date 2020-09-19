@@ -4,7 +4,7 @@ date: 2020-09-19
 published: true
 tags: ['django', 'heroku', 'python']
 series: false
-cover_image: https://res.cloudinary.com/manascode/image/upload/v1600504304/manascode.com/Deploy_django_application_to_heroku_exhgjh.png
+cover_image: ./images/Deploy-django-application-to-heroku.png
 social_img: https://res.cloudinary.com/manascode/image/upload/v1600504304/manascode.com/Deploy_django_application_to_heroku_exhgjh.png
 canonical_url: true
 description: "In this tutorial we are going to cover how you can deploy a django appliction to heroku web services. The easiest way to deploy a Django application on Herkou"
