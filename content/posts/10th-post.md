@@ -16,7 +16,7 @@ So in this tutorial we are going to cover how you can deploy a django appliction
 
 ## What you will going to learn
 
-- 1. Make simple `hello world` REST API in django
+- 1. Make simple application in django
 - 2. Prepare the application for Heroku
 - 3. Use git for verision control
 - 4. Deploy to heroku
@@ -28,7 +28,7 @@ Before you get started with this tutorial you have have these knowledges.
 - You have to know the basics of Django
 - You have to have some knowledge about Git
 
-### 1. Make simple `hello world` REST API in django
+### 1. Make simple application in django
 
 I know all of you're so smart so, if you already have the application ready you can `skip` this step. For this tutorial I am going to use `pipenv` for virtual enviorment. You could use anything for that. So the first step is to create the virtual enviorment and install the dependencies.
 
