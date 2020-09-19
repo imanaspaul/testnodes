@@ -48,7 +48,7 @@ django-admin startproject main .
 ```
 In this case I'm calling my project `main` and using a dot to avoud creating another folder called `main` to create the project. After you done all of that, now we have finished out first part.
 
-### - 2. Prepare the application for Heroku
+### 2. Prepare the application for Heroku
 
 In this step we need to prepare our application for production. So first thing is to open the `settings.py` file and do this changes.
 
