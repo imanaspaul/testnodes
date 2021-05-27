@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div class="support" v-if="showNavbar">
+    <!-- <div class="support" v-if="showNavbar">
       <div class="text">
          <a href="https://ko-fi.com/manascode"> 🔔 If you found this blog helpfull, Please support us to bare the hosting cost</a> 
       </div>
       <a href="https://ko-fi.com/manascode" class="kofi">Suppor us on Ko-fi</a>
-    </div>
+    </div> -->
     <Menu/>
     <header class="header" v-if="showNavbar">
       <div class="header__left">

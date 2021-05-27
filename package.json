@@ -18,7 +18,8 @@
     "@gridsome/vue-remark": "^0.2.2",
     "gridsome": "^0.7.0",
     "gridsome-plugin-disqus": "^1.0.3",
-    "vue-disqus": "^3.0.5"
+    "vue-disqus": "^3.0.5",
+    "vue-lazy-youtube-video": "^2.3.0"
   },
   "devDependencies": {
     "node-sass": "^4.12.0",

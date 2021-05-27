@@ -5,7 +5,8 @@ import '~/assets/style/index.scss'
 import DefaultLayout from '~/layouts/Default.vue'
 import VueDisqus from 'vue-disqus'
 import Author from './components/Author'
-
+import LazyYoutubeVideo from 'vue-lazy-youtube-video'
+ 
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) {
@@ -14,4 +15,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
   Vue.use(VueDisqus)
   Vue.use(Author)
+  Vue.component('LazyYoutubeVideo', LazyYoutubeVideo)
 }
