@@ -32,6 +32,7 @@ Before you get started with this tutorial you have have these knowledges.
 
 I know all of you're so smart so, if you already have the application ready you can `skip` this step. For this tutorial I am going to use `pipenv` for virtual enviorment. You could use anything for that. So the first step is to create the virtual enviorment and install the dependencies.
 
+
 ```sh
 pipenv install django
 
