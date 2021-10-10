@@ -2,10 +2,14 @@
 <html ${htmlAttrs}>
   <head>
     <meta property="fb:pages" content="662945694172966" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4953961971255028"
+      crossorigin="anonymous"
+    ></script>
     ${head}
   </head>
   <body ${bodyAttrs}>
-    
     <script>
       // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
       (function() {
@@ -20,26 +24,24 @@
         var preferredTheme;
         try {
           preferredTheme = localStorage.getItem('theme');
-        } catch (err) { }
+        } catch (err) {}
 
         window.__setPreferredTheme = function(newTheme) {
           setTheme(newTheme);
           try {
             localStorage.setItem('theme', newTheme);
           } catch (err) {}
-        }
+        };
 
         var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
         darkQuery.addListener(function(e) {
-          window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+          window.__setPreferredTheme(e.matches ? 'dark' : 'light');
         });
 
         setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
       })();
     </script>
 
-    ${app}
-    ${scripts}
-    
+    ${app} ${scripts}
   </body>
 </html>
