@@ -1,5 +1,5 @@
 <template>
-  <div id="120115656" ref="mo">Advertisement</div>
+  <div id="120115656" ref="mo"></div>
 </template>
 
 <script>

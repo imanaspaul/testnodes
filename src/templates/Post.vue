@@ -18,16 +18,18 @@
       </div>
       <Advertisement />
       <div class="post__content" v-html="$page.post.content" />
-
+      <Advertisement />
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
+      <Advertisement />
       <div class="loading" v-if="!loading">
         <button @click="setLoading()" class="laodcomment">
           Load comments / Write comments
         </button>
       </div>
       <Comment v-else />
+      <Advertisement />
     </div>
 
     <div class="post-comments">
