@@ -10,7 +10,7 @@ module.exports = {
   siteUrl: 'https://manascode.com',
   templates: {
     Post: '/:title',
-    Tag: '/tag/:id'
+    Tag: '/tag/:id',
   },
 
   plugins: [
@@ -22,14 +22,14 @@ module.exports = {
         config: {
           '/*': {
             changefreq: 'weekly',
-            priority: 0.5
+            priority: 0.5,
           },
           '/about': {
             changefreq: 'monthly',
-            priority: 0.7
-          }
-        }
-      }
+            priority: 0.7,
+          },
+        },
+      },
     },
     {
       // Create posts from markdown files
@@ -41,17 +41,17 @@ module.exports = {
           // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
           tags: {
             typeName: 'Tag',
-            create: true
-          }
-        }
-      }
+            create: true,
+          },
+        },
+      },
     },
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: 'UA-141182931-5'
-      }
-    }
+        id: 'UA-141182931-5',
+      },
+    },
   ],
 
   transformers: {
@@ -60,9 +60,7 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
-      plugins: [
-        '@gridsome/remark-prismjs'
-      ]
-    }
-  }
-}
+      plugins: ['@gridsome/remark-prismjs'],
+    },
+  },
+};

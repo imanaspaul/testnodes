@@ -2,19 +2,28 @@
 title: Stripe Payment Gateway Integration in Django eCommerce Website
 date: 2019-10-12
 published: true
-tags: ['django 2.2', 'Django REST Framework', 'python', 'Django Blog tutorial', 'stripe', 'stripe django']
+tags:
+  [
+    'django 2.2',
+    'Django REST Framework',
+    'python',
+    'Django Blog tutorial',
+    'stripe',
+    'stripe django',
+  ]
 series: false
 cover_image: ./uploads/2019/10/Django-ecommerce-part-three-manascode.jpg
 social_img: https://res.cloudinary.com/manascode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1590809667/manascode.com/Dajngo-Rest-Framewrok-and-Vue-Js-Manascode_opt.ae9ff94.c516f756523c489a5447416a8f8aaba0_wr2mhu.png
 canonical_url: true
-description: "In this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order. After they complete their payment redirect them to order page where they can see their order with order status."
+description: 'In this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order. After they complete their payment redirect them to order page where they can see their order with order status.'
 ---
+
 In the previous part of the Django eCommerce tutorial series, we have learnt about How we can add items to cart, increase and decrease item count, remove item from cart. And added allauth to add sign up and login activity.
 
 In this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order. After they complete their payment redirect them to order page where they can see their order with order status.
 
-What we are going to learn 
----------------------------
+## What we are going to learn
+
 1. **Let the user to add their shipping address before they purchase the product.**
 2. **Adding the ability to use their previously used address in the current order.**
 3. **Adding Stripe as a Payment gateway to make their payment**
@@ -29,7 +38,8 @@ And if you wanted to start from this part make sure you have clone [**`Github Re
 So, now let’s get started with the steps we narrate on the top.
 
 1. Let the user to add Shipping Address
----------------------------------------
+
+---
 
 We are assuming that we are going to sell physical products in our website. So we need to let the user to add their shipping address so we can ship the product to that address.
 
@@ -62,6 +72,7 @@ class BillingAddress(models.Model):
 	class Meta:
 		verbose_name_plural = "Billing Addresses"
 ```
+
 Now It’s time to create the form using `<strong>Django Forms</strong>` but don’t forget to migrate the database cause we have created a new model. We can create the separate file to create the forms but for now we are making the form in **`models.py`** file. You can create the `forms.py` file add use this codes.
 
 ```py
@@ -107,15 +118,14 @@ def checkout(request):
 
 	# Checkout view
 	form = BillingForm
-	
+
 	order_qs = Order.objects.filter(user= request.user, ordered=False)
 	order_items = order_qs[0].orderitems.all()
-	order_total = order_qs[0].get_totals() 
+	order_total = order_qs[0].get_totals()
 	context = {"form": form, "order_items": order_items, "order_total": order_total}
-	
+
 	return render(request, 'checkout/index.html', context)
 ```
-
 
 Now we have to create a templates directory in the checkout app and create a new folder called as the same name of your app. Create a new HTML file called index.html and paste this lines of codes. (Better would be if you write these lines of code by yourself instead of pasting)
 
@@ -135,7 +145,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
+
     'django.contrib.sites',
 
     'allauth',
@@ -151,24 +161,25 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ```
 
 ```html
-{% extends 'products/base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'products/base.html' %} {% load crispy_forms_tags %} {% block content
+%}
 
 <div class="container mt-5">
-  <h2 class="mb-3">Shipping Address > <span class="text-muted">Checkout</span></h2>
+  <h2 class="mb-3">
+    Shipping Address > <span class="text-muted">Checkout</span>
+  </h2>
   <div class="row">
     <div class="col-md-9">
-     <div class="card mb-5" style="height: auto">
-       <div class="card-body">
+      <div class="card mb-5" style="height: auto">
+        <div class="card-body">
           <form method="POST">
-          {% csrf_token %}
-
-         {{ form | crispy}}
-          <button type="submit" class="btn btn-primary float-right">Next</button>
+            {% csrf_token %} {{ form | crispy}}
+            <button type="submit" class="btn btn-primary float-right">
+              Next
+            </button>
           </form>
-       </div>
-     </div>
+        </div>
+      </div>
       {% if savedAddress %}
       <h4>Saved Address</h4>
       <div class="card mb-5" style="height: auto">
@@ -179,7 +190,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
           <p><b>Landmark :</b> {{ savedAddress.landmark }}</p>
         </div>
         <div class="card-body">
-           <a href="{% url 'checkout:payment' %}" class="btn btn-primary float-right">Proceed to Checkout with the saved Address</a>
+          <a
+            href="{% url 'checkout:payment' %}"
+            class="btn btn-primary float-right"
+            >Proceed to Checkout with the saved Address</a
+          >
         </div>
       </div>
       {% endif %}
@@ -187,12 +202,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
     <div class="col-md-3">
       <div class="card" style="height: auto">
         <div class="card-body">
-         Order Items
+          Order Items
         </div>
-           <div class="card-footer">
-            <span class="float-left"><b>Order Total</b></span>
-            <span class="float-right"><b>$ {{ order_total | floatformat:2 }}</b></span>
-          </div>
+        <div class="card-footer">
+          <span class="float-left"><b>Order Total</b></span>
+          <span class="float-right"
+            ><b>$ {{ order_total | floatformat:2 }}</b></span
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -200,10 +217,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 {% endblock %}
 ```
+
 It’s time to add the view in urls.py so first create the urls.py file in checkout app and then write this codes.
 
 ```py
-from django.urls import path 
+from django.urls import path
 from . views import checkout
 
 app_name = "checkout"
@@ -212,6 +230,7 @@ urlpatterns = [
 	path('checkout/', checkout, name="index"),
 ]
 ```
+
 We need to add the urls to main urls.py file we have in our project directory.
 
 ```py
@@ -232,10 +251,11 @@ Everything is fine for now we should see the forms in our checkout page. Before 
 
 After run the server it will look like this.
 
-<figure class="wp-block-image">![Checout page Django ecommerce tutorial manascode.com](./uploads/2019/10/chcekot-page-first-1024x503.jpg)
+![Checout page Django ecommerce tutorial manascode.com](./uploads/2019/10/chcekot-page-first-1024x503.jpg)
 
-2. Save the Address to the Database and **Adding the ability to use their previously used address in the current order.** 
---------------------------------------------------------------------------------------------------------------------------
+2. Save the Address to the Database and **Adding the ability to use their previously used address in the current order.**
+
+---
 
 This step this quite complected so carefully read the step. First we need to save the from data but we also need to show saved address for the next time when then purchase something from our website. Second we have to update the previous address if they have, we don’t want to a user have multiple shipping address in our database. So having this functionality here is the code for the checkout view.
 
@@ -244,10 +264,10 @@ def checkout(request):
 
 	# Checkout view
 	form = BillingForm
-	
+
 	order_qs = Order.objects.filter(user= request.user, ordered=False)
 	order_items = order_qs[0].orderitems.all()
-	order_total = order_qs[0].get_totals() 
+	order_total = order_qs[0].get_totals()
 	context = {"form": form, "order_items": order_items, "order_total": order_total}
 	# Getting the saved saved_address
 	saved_address = BillingAddress.objects.filter(user = request.user)
@@ -270,13 +290,15 @@ def checkout(request):
 				billingaddress = form.save(commit=False)
 				billingaddress.user = request.user
 				billingaddress.save()
-				
+
 	return render(request, 'checkout/index.html', context)
 ```
+
 Now it’s time to Adding Stripe as a Payment gateway to make their payment.
 
-3. Adding Stripe as a Payment gateway to make their payment 
--------------------------------------------------------------
+3. Adding Stripe as a Payment gateway to make their payment
+
+---
 
 Adding stripe is too easy than the other functionality we have created in our **eCommerce website in Django.** So first of all we need install the Stripe package in our project.
 
@@ -295,7 +317,6 @@ STRIPE_SECRET_KEY = 'your test secret key'
 STRIPE_PUBLISHABLE_KEY = 'your test publishable key'
 ```
 
-
 So now we need to create the payment page view. In `<strong>views.py</strong>` file create a new view called payment.
 
 ```py
@@ -306,7 +327,7 @@ from django.conf import settings
 def payment(request):
 	key = settings.STRIPE_PUBLISHABLE_KEY
 	order_qs = Order.objects.filter(user= request.user, ordered=False)
-	order_total = order_qs[0].get_totals() 
+	order_total = order_qs[0].get_totals()
 	totalCents = float(order_total * 100);
 	total = round(totalCents, 2)
 	if request.method == 'POST':
@@ -314,10 +335,11 @@ def payment(request):
             currency='usd',
             description=order_qs,
             source=request.POST['stripeToken'])
-		
-        
+
+
 	return render(request, 'checkout/payment.html', {"key": key, "total": total})
 ```
+
 We need to import the settings and Stripe first. Then we are using `stripe.Charge` functions to charge the user. We are going to use Stripe Payment which is already made by Stripe to make our work flow simple and easier.
 
 [**For more info checkout the Stripe Documentation &gt;&gt;** ](https://stripe.com/docs)
@@ -325,7 +347,7 @@ We need to import the settings and Stripe first. Then we are using `stripe.Charg
 Add the **payment** function to the `urls.py` file to navigate to the route.
 
 ```py
-from django.urls import path 
+from django.urls import path
 from . views import checkout, payment
 
 app_name = "checkout"
@@ -335,25 +357,26 @@ urlpatterns = [
 	path('payment/', payment, name="payment"),
 ]
 ```
+
 Now create a new HTML file for **`payment.html`** and now paste this codes.
 
 ```html
-{% extends 'products/base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'products/base.html' %} {% load crispy_forms_tags %} {% block content
+%}
 
 <div class="container mt-5 text-center">
-<h2>Pay with Stripe</h2>
-<form action="{% url 'checkout:charge' %}" method="post">
-  {% csrf_token %}
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="{{ key }}"
-    data-description="Complete your order"
-    data-amount="{{ total }}"
-    data-locale="auto">
-</script>
-</form>
-
+  <h2>Pay with Stripe</h2>
+  <form action="{% url 'checkout:charge' %}" method="post">
+    {% csrf_token %}
+    <script
+      src="https://checkout.stripe.com/checkout.js"
+      class="stripe-button"
+      data-key="{{ key }}"
+      data-description="Complete your order"
+      data-amount="{{ total }}"
+      data-locale="auto"
+    ></script>
+  </form>
 </div>
 
 {% endblock %}
@@ -366,7 +389,7 @@ So to call the charge function we are using the form action and points to charge
 ```py
 def charge(request):
 	order = Order.objects.get(user=request.user, ordered=False)
-	order_total = order.get_totals() 
+	order_total = order.get_totals()
 	totalCents = int(float(order_total * 100));
 	if request.method == 'POST':
 		charge = stripe.Charge.create(amount=totalCents,
@@ -387,6 +410,7 @@ def charge(request):
 		return render(request, 'checkout/charge.html')
 
 ```
+
 In this charge function first we are getting the order object that the requested has. Then we are getting the order total to set the charge amount. Remember one thing that the charge amount should be an Integer value not floating value.
 
 Strite charge the values in cents so we are converting the total amount to cents and making sure that value store in `int` in `totalCents` variable.
@@ -394,9 +418,10 @@ Strite charge the values in cents so we are converting the total amount to cents
 Again we are using the Charge method from stripe to charge the user.
 
 4. Handling the successful payment.
------------------------------------
 
-To check the payment is successful or not you can print the `charge ` to see the details or you can check the stripe dashboard under payments. It should look like this.
+---
+
+To check the payment is successful or not you can print the `charge` to see the details or you can check the stripe dashboard under payments. It should look like this.
 
 ![Django tutorials manascode](./uploads/2019/10/STRIPE-PAYMENT-SUCCESFUL-1024x188.jpg)
 After the successful payment we have to mark the order as `<strong>True</strong>` that we have by default **`False`**. But we also need to make an order ID to allow the user to track their order status. And we have to store the payment id that will going to return after the Charge methods.
@@ -408,21 +433,22 @@ Another thing we wanted to do is mark the Cart Items as purchased. So first we a
 We are just saving the order object and cart objects then render the **`charge.html`** page. You can design the charge page anything you want. But I like to make things much simple to learn.
 
 ```html
-{% extends 'products/base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'products/base.html' %} {% load crispy_forms_tags %} {% block content
+%}
 
 <div class="container mt-5 text-center">
-<h2 class="text-center">Thanks, you for your Orders</h2>
-<a href="/my-orders" class="btn btn-success">My Orders</a>
+  <h2 class="text-center">Thanks, you for your Orders</h2>
+  <a href="/my-orders" class="btn btn-success">My Orders</a>
 </div>
 
 {% endblock %}
 ```
+
 I made a button to go to the My Order Page where I basically show all the orders they have.
 
-5. Showing all the Order they have 
------------------------------------
+5. Showing all the Order they have
+
+---
 
 To show all the order the user has, we need a view for that so let’s create a view called **`oderView`**. Here is the all code for the new view.
 
@@ -440,62 +466,61 @@ def oderView(request):
 		return redirect('/')
 	return render(request, 'checkout/order.html', context)
 ```
+
 In this view we are using try and except to handle the errors.
 Now create new html file to show the order they have. In our case we are calling as **`order.html`**
 
 ```html
-{% extends 'products/base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'products/base.html' %} {% load crispy_forms_tags %} {% block content
+%}
 
 <div class="container mt-5">
-<h2 class="text-center"><strong>Your Ordes</strong></h2>
-<div class="row">
-	<div class="col-md-12">
-		<div class="card mt-5" style="height: auto">
-			<div class="table-responsive">
-			<table class="table">
-			  <thead>
-			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">Order Id</th>
-			      <th scope="col">Products</th>
-			      <th scope="col">Status</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    
-			    
-			    {% for order in orders %}
-			    <tr>
-			      <th scope="row">{{ forloop.counter }}</th>
-			      <td><a href="#">{{ order.orderId }}</a></td>
-			      <td>
-			      	{% for item in order.orderitems.all %}
-			      		{{ item }}
-			      		<br>
-			      	{% endfor %}
-			      </td>
-			      <td><span class="badge badge-primary">Processing Your Order</span></td>
-			  	</tr>
-			      {% endfor %}
-			    
-			  </tbody>
-			</table>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-12 my-5 text-center">
-		<a href="/" class="btn btn-success">Back to Home</a>
-	</div>
-</div>
+  <h2 class="text-center"><strong>Your Ordes</strong></h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-5" style="height: auto">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order Id</th>
+                <th scope="col">Products</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in orders %}
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="#">{{ order.orderId }}</a></td>
+                <td>
+                  {% for item in order.orderitems.all %} {{ item }}
+                  <br />
+                  {% endfor %}
+                </td>
+                <td>
+                  <span class="badge badge-primary">Processing Your Order</span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 my-5 text-center">
+      <a href="/" class="btn btn-success">Back to Home</a>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
 ```
+
 After all these successfully done. The website should look like this.
 
-![Order manascode.com](./uploads/2019/10/order-manascode-1024x454.jpg) 
+![Order manascode.com](./uploads/2019/10/order-manascode-1024x454.jpg)
 
 We are using a lots of Function based views but I think that would help you understand the logic in much easier way. But don’t worry we are going to convert this into Class Based View soon. You can take the challenge to convert these function based view to Class based views and make a pull request our Github repo.
 

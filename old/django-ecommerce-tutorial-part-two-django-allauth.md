@@ -2,7 +2,7 @@
 title: 'Django eCommerce tutorial part two'
 date: '2019-09-11T07:30:59+01:00'
 status:
-    - '200'
+  - '200'
 permalink: /django-ecommerce-tutorial-part-two-django-allauth
 author: 'Manas Paul'
 excerpt: ''
@@ -10,47 +10,48 @@ type: post
 id: 233
 thumbnail: ../uploads/2019/09/Django-ecommerce-part-ii-thumnail.jpg
 category:
-    - Django
-    - 'HTML AND CSS'
-    - Python
+  - Django
+  - 'HTML AND CSS'
+  - Python
 tag:
-    - bootstrap
-    - 'django 2.2'
-    - 'Django Ecommerce'
-    - manascode.com
-    - python
+  - bootstrap
+  - 'django 2.2'
+  - 'Django Ecommerce'
+  - manascode.com
+  - python
 post_format: []
 wtr-disable-reading-progress:
-    - ''
+  - ''
 wtr-disable-time-commitment:
-    - ''
+  - ''
 onesignal_meta_box_present:
-    - '1'
+  - '1'
 onesignal_send_notification:
-    - ''
+  - ''
 wtr-custom-time-label:
-    - ''
+  - ''
 _yoast_wpseo_primary_category:
-    - '3'
+  - '3'
 _yoast_wpseo_content_score:
-    - '90'
+  - '90'
 _yoast_wpseo_focuskw:
-    - 'Django eCommerce tutorial manascode.com'
+  - 'Django eCommerce tutorial manascode.com'
 _yoast_wpseo_title:
-    - 'Managing the Cart Items, Orders and Registration Using Django Allauth'
+  - 'Managing the Cart Items, Orders and Registration Using Django Allauth'
 _yoast_wpseo_metadesc:
-    - 'In this part two, Django Ecommerce tutorial we are going to learn Managing the Cart Items, Orders and Registration Using Django Allauth. manascode.com'
+  - 'In this part two, Django Ecommerce tutorial we are going to learn Managing the Cart Items, Orders and Registration Using Django Allauth. manascode.com'
 _yoast_wpseo_linkdex:
-    - '63'
+  - '63'
 uuid:
-    - a8a18bc0-966c-ab0d-2834-debe6acae518
+  - a8a18bc0-966c-ab0d-2834-debe6acae518
 notification_id:
-    - 3472b485-9a3c-47e0-81c9-85915edd8c5e
+  - 3472b485-9a3c-47e0-81c9-85915edd8c5e
 response_body:
-    - '{"id":"3472b485-9a3c-47e0-81c9-85915edd8c5e","recipients":22,"external_id":"a8a18bc0-966c-ab0d-2834-debe6acae518","warnings":["You must configure iOS notifications in your OneSignal settings if you wish to send messages to iOS users.","You must configure Android notifications in your OneSignal settings if you wish to send messages to Android users."]}'
+  - '{"id":"3472b485-9a3c-47e0-81c9-85915edd8c5e","recipients":22,"external_id":"a8a18bc0-966c-ab0d-2834-debe6acae518","warnings":["You must configure iOS notifications in your OneSignal settings if you wish to send messages to iOS users.","You must configure Android notifications in your OneSignal settings if you wish to send messages to Android users."]}'
 recipients:
-    - '22'
+  - '22'
 ---
+
 In the last part, we stopped at **Adding Items to Cart** and **Removing items from cart**. Now in this part we are going to learn managing every single items in the cart, and in Order . Use **Django-allauth** to quickly add the **Register and Login ability in our Django ecommerce project** to the user so they can add the item to the cart.
 
 In this post you may be see some more html part rather than python codes. We are going to use **Bootstrap** a css framework for rapid design. If you don’t know **Bootstrap**, then you should check out the **amazing tutorial on [w3schools](https://www.w3schools.com/bootstrap4/)** or **[Bootstap official documentation](https://getbootstrap.com/)**.
@@ -59,8 +60,7 @@ Learn Bootstrap is not necessary, but having the knowledge of HTML and CSS will 
 
 <http://bit.ly/Django-eCommerce-Github-Repo>
 
-What we are going to learn in this blog post :
-----------------------------------------------
+## What we are going to learn in this blog post :
 
 <div class="schema-how-to wp-block-yoast-how-to-block">1. **Adding ability to increase and decrease the Product quantity**
 2. **Showing the Cart Items in the Cart Page**
@@ -77,8 +77,9 @@ What we are going to learn in this blog post :
 
 So. let’s start the tutorial step by step as we do. Grab a cup of coffee ☕ and start coding.
 
-1. Showing the Cart Items in the Cart Page 
--------------------------------------------
+1. Showing the Cart Items in the Cart Page
+
+---
 
 In the last part we were able to add items to the cart and in Order but we are able to see that which item we have in the cart and how many quantities we have.
 
@@ -104,12 +105,13 @@ def CartView(request):
     if carts.exists():
         order = orders[0]
         return render(request, 'cart/home.html', {"carts": carts, 'order': order})
-		
+
     else:
         messages.warning(request, "You do not have an active order")
         return redirect("core:home")
 
 ```
+
 ```
 
 </div>In the code, first we are filtering the **Cart and Order model** by using the user in request object. Then we are checking that if the cart exists then we are rendering the cart home page otherwise we redirecting the home page.
@@ -146,16 +148,15 @@ TEMPLATES = [
 ```
 ```
 
-</div>2. Designing our website using Bootstrap 
------------------------------------------
+## </div>2. Designing our website using Bootstrap
 
 Now we need to design the home page and product detail. To make the design organized we are going to split the template into different parts. Instead of write all the code here I have uploaded all the codes to github, you can get the code from there.
 
 <http://bit.ly/Django-eCommerce-Github-Repo>
 
-<figure class="wp-block-image">[![](https://uapi.siteground.com/img/affiliate/en/NOPRICE/general_EN_start-site-leaderboard-green.jpg)](https://siteground.com/web-hosting.htm?afimagecode=876a6d997815b4beb18c0a9d969acb39)</figure>But there is an import thing that should be discussed in the post itself, that is **how we are going to show the cart count on the nav bar** as we have seen on other eCommerce website’s out there.
+[![](https://uapi.siteground.com/img/affiliate/en/NOPRICE/general_EN_start-site-leaderboard-green.jpg)](https://siteground.com/web-hosting.htm?afimagecode=876a6d997815b4beb18c0a9d969acb39)</figure>But there is an import thing that should be discussed in the post itself, that is **how we are going to show the cart count on the nav bar** as we have seen on other eCommerce website’s out there.
 
-###  Showing the cart count in the navbar.
+### Showing the cart count in the navbar.
 
 We have added the cart functionality in the previous tutorial. So now we need to **add the product count in the navbar** so show the user that how many products they have added in their Cart.
 
@@ -172,13 +173,15 @@ register = template.Library()
 
 @register.filter
 def cart_total(user):
-    order = Order.objects.filter(user=user, ordered=False)
+order = Order.objects.filter(user=user, ordered=False)
 
     if order.exists():
     	return order[0].orderitems.count()
     else:
     	return 0
+
 ```
+
 ```
 
 </div>In the python file, we are first importing the tamplate from django and then importing the model we need for this functionality. Then we are creating an instance of the **template.Library()** method. Now to register the template we are using the decorators called **`@register.filter`** then writing a function which will return the total count of the order item we have in our order.
@@ -251,12 +254,14 @@ Cart home page code :
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>On the above code, if you look carefully we are hard coded the total price in the table. Now we need to create some methods which will calculate the total in our cart.
 
-###  Calculating the total Price of all Product
+### Calculating the total Price of all Product
 
 To calculate the total price of all products that we have in our cart, we have to create some function. We can count the total in the cart view but use the total price in other places we have write the same code again.
 
@@ -273,20 +278,21 @@ class Cart(models.Model):
     quantity = models.IntegerField(default=1)
     created = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
         return f'{self.quantity} of {self.item.name}'
 
-    # Getting the total price 
+    # Getting the total price
 
     def get_total(self):
         return self.item.price * self.quantity
+
 ```
+
 ```
 
 </div>In the function we are multiply the **`product price`** with with **`product quantity`** and returning the value. With this function we are just calculating the each product’s price but we also need to calculate the total price of all products in our cart. So for that we need to create another method in our Order model.
 
-<figure class="wp-block-image">[![](https://uapi.siteground.com/img/affiliate/en/NOPRICE/general_EN_start-site-leaderboard-green.jpg)](https://siteground.com/web-hosting.htm?afimagecode=876a6d997815b4beb18c0a9d969acb39)</figure>Now, you may think that why we are creating the function in our Order model why not in the Cart model. So to under why we are doing this, think about that we are getting only one object from the Order model where we will get all of the cart items at once.
+[![](https://uapi.siteground.com/img/affiliate/en/NOPRICE/general_EN_start-site-leaderboard-green.jpg)](https://siteground.com/web-hosting.htm?afimagecode=876a6d997815b4beb18c0a9d969acb39)</figure>Now, you may think that why we are creating the function in our Order model why not in the Cart model. So to under why we are doing this, think about that we are getting only one object from the Order model where we will get all of the cart items at once.
 
 Here is the another method for calculating the total for all the products in Cart :
 
@@ -307,9 +313,11 @@ class Order(models.Model):
         total = 0
         for order_item in self.orderitems.all():
             total += order_item.get_total()
-        
+
         return total
+
 ```
+
 ```
 
 </div>Now the cart home page code will look like this :
@@ -319,6 +327,7 @@ class Order(models.Model):
 {% extends 'products/base.html' %}
 
 {% block content %}
+
 <div class="container my-5">
 <div class="my-5">
 	<h2>You Cart</h2>
@@ -358,13 +367,14 @@ class Order(models.Model):
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>Now the page will look like this after ruining the server at port 8000.
 
-<figure class="wp-block-image">![Managing the Cart Items, Orders and User Registration Using Django AllOuth](https://manascode.com/wp-content/uploads/2019/09/cart-page-manascode-1024x492.jpg)<figcaption>manascode.com</figcaption></figure>3. Adding ability to increase and decrease the Product quantity 
-----------------------------------------------------------------
+## ![Managing the Cart Items, Orders and User Registration Using Django AllOuth](https://manascode.com/wp-content/uploads/2019/09/cart-page-manascode-1024x492.jpg)<figcaption>manascode.com</figcaption></figure>3. Adding ability to increase and decrease the Product quantity
 
 Now we need to add the ability to decrease the Product Quantity in the cart page( We have the view for increasing the quantity ). First of all for this options we need to create the views so we can call that from the page, in case we can call the views by using AJAX, but to make it simple to understand we are now calling the function using django template syntax from cart page.
 
@@ -404,6 +414,7 @@ def decreaseCart(request, slug):
         return redirect("mainapp:cart-home")
 
 ```
+
 ```
 
 </div>Now we need two button in cart page where user can increase and decrease the button. The code will look like this.
@@ -413,6 +424,7 @@ def decreaseCart(request, slug):
 {% extends 'products/base.html' %}
 
 {% block content %}
+
 <div class="container my-5">
 <div class="my-5">
 	<h2>Your Cart</h2>
@@ -456,12 +468,14 @@ def decreaseCart(request, slug):
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>After adding them correctly, your server should auto reload if you have running the server. And it should look like this. Incase you may be missed the base.html and it will through an error. So make sure you add the base.html, you can get the file from github link
 
-<figure class="wp-block-image">![Django cart manascode.com](https://manascode.com/wp-content/uploads/2019/09/cart-increase-django-tutorial-manascode-1-1024x514.jpg)</figure>Now as you can see everything is going fine but we have the total price something look like this **$5599.860000000001** but we want to get the last two decimal places for the total price. So to do that go back to the **get\_total** method we have created in our **models.py** file and add this lines of code to get the value.
+![Django cart manascode.com](https://manascode.com/wp-content/uploads/2019/09/cart-increase-django-tutorial-manascode-1-1024x514.jpg)</figure>Now as you can see everything is going fine but we have the total price something look like this **\$5599.860000000001** but we want to get the last two decimal places for the total price. So to do that go back to the **get_total** method we have created in our **models.py** file and add this lines of code to get the value.
 
 You can use Django template tag **`floatformat`** to make it much easier. You can read about the template tag here &gt; [Django Buitins template tags.](https://docs.djangoproject.com/en/2.2/ref/templates/builtins/)
 
@@ -474,15 +488,16 @@ We have used for the grad total in the cart home page.
         total = self.item.price * self.quantity
         floattotal = float("{0:.2f}".format(total))
         return floattotal
-```
+
 ```
 
-</div>4. Adding Registration and Login Feature in our Django Project 
----------------------------------------------------------------
+```
+
+## </div>4. Adding Registration and Login Feature in our Django Project
 
 As of now we are using our super user credentials to check the functionality that we have created with these two tutorial. Now we need to let the other users to sing up and create new cart and make the order.
 
-To do that we are going to use the **Django allauth**  third party app to make our workflow much easier. Adding Django allauth is easy, I hope you guys know about that, if you don’t then I would suggest first go the the **[Django Allauth documentation](https://django-allauth.readthedocs.io/en/latest/installation.html)** to know more about it. But here is how we add the authencation in our eCommerce app.
+To do that we are going to use the **Django allauth** third party app to make our workflow much easier. Adding Django allauth is easy, I hope you guys know about that, if you don’t then I would suggest first go the the **[Django Allauth documentation](https://django-allauth.readthedocs.io/en/latest/installation.html)** to know more about it. But here is how we add the authencation in our eCommerce app.
 
 ### 1.Step One
 
@@ -501,31 +516,33 @@ In **`settings.py`** add this lines of code.
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(**file**)))
 
 # Quick-start development settings - unsuitable for production
+
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a%zlhr+b0mze-t5dxt%p1g=0a8-^njg#0o*@$gvp98%w=5op5u'
+
+SECRET_KEY = 'a%zlhr+b0mze-t5dxt%p1g=0a8-^njg#0o\*@\$gvp98%w=5op5u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-   
+'django.contrib.admin',
+'django.contrib.auth',
+'django.contrib.contenttypes',
+'django.contrib.sessions',
+'django.contrib.messages',
+'django.contrib.staticfiles',
+
     'django.contrib.sites',
 
     'allauth',
@@ -533,76 +550,77 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cart',
     'products'
+
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'django.middleware.security.SecurityMiddleware',
+'django.contrib.sessions.middleware.SessionMiddleware',
+'django.middleware.common.CommonMiddleware',
+'django.middleware.csrf.CsrfViewMiddleware',
+'django.contrib.auth.middleware.AuthenticationMiddleware',
+'django.contrib.messages.middleware.MessageMiddleware',
+'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',   
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+{
+'BACKEND': 'django.template.backends.django.DjangoTemplates',
+'DIRS': [],
+'APP_DIRS': True,
+'OPTIONS': {
+'context_processors': [
+'django.template.context_processors.debug',
+'django.template.context_processors.request',
+'django.contrib.auth.context_processors.auth',
+'django.contrib.messages.context_processors.messages',
+],
+},
+},
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend',
+
 )
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
-
 # Database
+
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
 }
 
-
 # Password validation
+
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+{
+'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+},
 ]
 
-
 # Internationalization
+
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -615,8 +633,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
+
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -626,7 +644,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staic')
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
 ```
+
 ```
 
 </div>### 3.Step Three
@@ -695,6 +715,6 @@ Here is the **navbar.html** code :
 
 </div>Now the main website will look like this after saving all these changes.
 
-<figure class="wp-block-image">![](https://manascode.com/wp-content/uploads/2019/09/eCommerce-website-manascode.com_-1024x503.jpg)</figure>Ok, that’s it for this part. We are going to focus **payment gateways**, **styling our register and login page, filter by category and adding search feature in our project.**
+![](https://manascode.com/wp-content/uploads/2019/09/eCommerce-website-manascode.com_-1024x503.jpg)</figure>Ok, that’s it for this part. We are going to focus **payment gateways**, **styling our register and login page, filter by category and adding search feature in our project.**
 
 Thank you for reading our post. stay tuned for next update. And sorry for the delay. Hope you learned something from this part, **`please let me know in comment section`**. See you with part three soon.

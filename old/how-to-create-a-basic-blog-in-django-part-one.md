@@ -9,34 +9,35 @@ type: post
 id: 35
 thumbnail: ../uploads/2019/06/How-to-create-a-blog-in-Django-manascode.jpg
 category:
-    - Django
-    - Python
+  - Django
+  - Python
 tag:
-    - blog
-    - django
-    - 'django 2.2'
-    - 'part 01'
-    - python
+  - blog
+  - django
+  - 'django 2.2'
+  - 'part 01'
+  - python
 post_format: []
 wtr-disable-reading-progress:
-    - ''
+  - ''
 wtr-disable-time-commitment:
-    - ''
+  - ''
 wtr-custom-time-label:
-    - ''
+  - ''
 _yoast_wpseo_primary_category:
-    - '3'
+  - '3'
 _yoast_wpseo_content_score:
-    - '90'
+  - '90'
 onesignal_meta_box_present:
-    - '1'
+  - '1'
 onesignal_send_notification:
-    - ''
+  - ''
 ---
+
 In this Free Tutorial, We are going to start **Create a Blog using Django**. You can create most powerful web based application using Django rather than creating a Blog. But to **learn Django from scratch**, we need to focus on the basics on Django.
 
 > For this Free Tutorial we are assuming that you know the basics of **Python Programming Language**. If you don’t know Python then feel free to close the tab and learn the basics of Python from other resources.
-> 
+>
 > I personally recommended **Sentdex youtube channel** or you go to his website [pythonprogramming.net ](https://pythonprogramming.net/) to learn the basics of Python and then you can get back to this tutorial series.
 
 So Now web are going to start our Tutorial step by step. To **make a basic Blog in Django**, we need to have some requirements to get stated.
@@ -58,15 +59,17 @@ Now create a new folder called Blog and open the terminal or command prompt in t
 
 To **create a blog in django**, we need to create a virtual environment in that folder. To create the virtual environment type this following command in your terminal.
 
-```
+````
 <pre class="wp-block-code">```
 pipenv shell
-```
+````
+
 ```
 
 It will create a virtual environment in that folder. Now you can create Install Django in this virtual environment. To install django type the following command in you terminal.
 
 ```
+
 <pre class="wp-block-code">```
 pipenv install django
 ```
@@ -98,7 +101,7 @@ python manage.py startapp post
 ```
 ```
 
-<figure class="wp-block-image">![](../uploads/2019/06/folder-structure-manascode-django-blog.png)<figcaption>Folder Structure after go through all of the commands</figcaption></figure>Now the folder structure will be like this. It’s time to get our hands dirty 😃. In any code editor open the main blog folder we created in the first step. First of all we need to install or link the app to project we created.
+![](../uploads/2019/06/folder-structure-manascode-django-blog.png)<figcaption>Folder Structure after go through all of the commands</figcaption></figure>Now the folder structure will be like this. It’s time to get our hands dirty 😃. In any code editor open the main blog folder we created in the first step. First of all we need to install or link the app to project we created.
 
 Now you can run this command to run the Server to see your by blank Django project in the browser.
 
@@ -164,9 +167,9 @@ Now it’s time to add these fields in out database. For that django has a comma
 
 Now after run the command it looks like this.
 
-<figure class="wp-block-image">![](../uploads/2019/06/makemigrations.png)<figcaption>python manage.py makemigrations</figcaption></figure>Now type another command to migrate the fields in the database. The command is **python manage.py migrate**. Now after this should look like this.
+![](../uploads/2019/06/makemigrations.png)<figcaption>python manage.py makemigrations</figcaption></figure>Now type another command to migrate the fields in the database. The command is **python manage.py migrate**. Now after this should look like this.
 
-<figure class="wp-block-image">![](../uploads/2019/06/migrate.png)<figcaption>python manage.py migrate</figcaption></figure>By default Django has some predefined models. With that migrate command they also be migrated to the database. This will only happened if you are running these two commands for the first time after creating the project.
+![](../uploads/2019/06/migrate.png)<figcaption>python manage.py migrate</figcaption></figure>By default Django has some predefined models. With that migrate command they also be migrated to the database. This will only happened if you are running these two commands for the first time after creating the project.
 
 #### Step five:
 
@@ -198,11 +201,11 @@ To create a Admin user in Django terms it’s called super user we need to type 
 
 Now Django will ask you some required fields like username email and password after doing that you should see something look like this.
 
-<figure class="wp-block-image">![](../uploads/2019/06/superuser.png)<figcaption>py manage.py createsuperuser</figcaption></figure>#### Step four:
+![](../uploads/2019/06/superuser.png)<figcaption>py manage.py createsuperuser</figcaption></figure>#### Step four:
 
 Now let’s run the server again by **python manage.py runserver** and the server will start again in port **127.0.0.1:**[8000](http://127.0.0.1:8000). Just open the server in your browser and navigate to **[127.0.0.1:8000/admin ](http://127.0.0.1:8000/admin%20)**.
 
-<figure class="wp-block-image">![](../uploads/2019/06/admin-user-interface.png)<figcaption>Django built in Admin Interface</figcaption></figure>Fill the credentials that you given when you were creating the Superuser and login. Then you will see something like this.
+![](../uploads/2019/06/admin-user-interface.png)<figcaption>Django built in Admin Interface</figcaption></figure>Fill the credentials that you given when you were creating the Superuser and login. Then you will see something like this.
 
 ![](../uploads/2019/06/admin-interface.png)Now just add few **Articles** or **Post** to work with. After adding some let’s get get back to the code again. Now to show all the posts that we added from the backend or Admin interface, We need to create some views for that. One is for show all the Post in Home page. Another is to show the details of the post when someone clicks to see the full post.
 
@@ -302,9 +305,9 @@ And here is the index.html code, In that tutorial we are not focusing on the des
 
 In this page to show the posts in the page we need to use Django templating syntax. Now we need to to loop through all the posts in the database, for that we used a for loop looks something like this.
 
-```
+````
 <pre class="wp-block-code">```
-{% for post in posts %}  
+{% for post in posts %}
             <div class="col s12 m4">
                <div class="card ">
                   <div class="card-content ">
@@ -317,12 +320,14 @@ In this page to show the posts in the page we need to use Django templating synt
                </div>
             </div>
 {% endfor %}
-```
+````
+
 ```
 
 Now we need to set the urls to handle the http requests. So to do that create a new file in the post app directory called urls.py and paste the following codes.
 
 ```
+
 <pre class="wp-block-code">```
 from django.urls import path 
 from . views import all_post
@@ -352,7 +357,7 @@ In the above codes we are just importing the **include** method to map the urls 
 
 After saving all the files now refresh the page in the browser, you will see something like this.
 
-<figure class="wp-block-image">![](../uploads/2019/06/Thumnail.png)<figcaption>Make a blog with Django</figcaption></figure>####  Step six: 
+![](../uploads/2019/06/Thumnail.png)<figcaption>Make a blog with Django</figcaption></figure>####  Step six: 
 
 Now we need to create the second view for the details page. So the same stuff again need to import one method is **get\_object\_or\_404**.
 
@@ -445,7 +450,7 @@ Everything is almost setup except the Post detail page. So just create the **pos
       </div>
       <!--JavaScript at end of body for optimized loading-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      
+
    </body>
 </html>
 ```
@@ -453,6 +458,6 @@ Everything is almost setup except the Post detail page. So just create the **pos
 
 Now save all the files and make sure that your server is running. if not then just restart the server and It will be look like this.
 
-<figure class="wp-block-image">![](../uploads/2019/06/How-to-Make-a-Blog-with-Django-Manascode-post-details-page.png)<figcaption>Post details page</figcaption></figure>> Thanks for reading the post. If you have any question or if you think anything is missing please let me know in the comment section.
+![](../uploads/2019/06/How-to-Make-a-Blog-with-Django-Manascode-post-details-page.png)<figcaption>Post details page</figcaption></figure>> Thanks for reading the post. If you have any question or if you think anything is missing please let me know in the comment section.
 
 </body></html>

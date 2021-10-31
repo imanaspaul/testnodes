@@ -9,39 +9,39 @@ type: post
 id: 264
 thumbnail: ../uploads/2019/10/Django-ecommerce-part-three-manascode.jpg
 category:
-    - Django
-    - Python
+  - Django
+  - Python
 tag: []
 post_format: []
 wtr-disable-reading-progress:
-    - ''
+  - ''
 wtr-disable-time-commitment:
-    - ''
+  - ''
 onesignal_meta_box_present:
-    - ''
+  - ''
 onesignal_send_notification:
-    - ''
+  - ''
 wtr-custom-time-label:
-    - ''
+  - ''
 _yoast_wpseo_primary_category:
-    - '3'
+  - '3'
 _yoast_wpseo_content_score:
-    - '90'
+  - '90'
 _yoast_wpseo_focuskw:
-    - 'Django eCommerce Tutorial'
+  - 'Django eCommerce Tutorial'
 _yoast_wpseo_title:
-    - '%%title%% %%page%%'
+  - '%%title%% %%page%%'
 _yoast_wpseo_metadesc:
-    - 'In Django eCommerce Tutorial this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order.'
+  - 'In Django eCommerce Tutorial this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order.'
 _yoast_wpseo_linkdex:
-    - '71'
+  - '71'
 ---
+
 In the previous part of the Django eCommerce tutorial series, we have learnt about How we can add items to cart, increase and decrease item count, remove item from cart. And added allauth to add sign up and login activity.
 
 In this part we are going to learn How we can add shipping address and proceed the user to checkout page to complete their order. After they complete their payment redirect them to order page where they can see their order with order status.
 
-What we are going to learn 
----------------------------
+## What we are going to learn
 
 <div class="schema-how-to wp-block-yoast-how-to-block">1. **Let the user to add their shipping address before they purchase the product.**
 2. **Adding the ability to use their previously used address in the current order.**
@@ -57,7 +57,8 @@ And if you wanted to start from this part make sure you have clone [**`Github Re
 So, now let’s get started with the steps we narrate on the top.
 
 1. Let the user to add Shipping Address
----------------------------------------
+
+---
 
 We are assuming that we are going to sell physical products in our website. So we need to let the user to add their shipping address so we can ship the product to that address.
 
@@ -74,23 +75,27 @@ from django.contrib.auth import get_user_model
 # Create your models here.
 
 # Get the user model
+
 User = get_user_model()
 
 # Billing Address Model
+
 class BillingAddress(models.Model):
 
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	address = models.CharField(max_length=100)
-	zipcode = models.CharField(max_length=50)
-	city = models.CharField(max_length=30)
-	landmark = models.CharField(max_length=20)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=50)
+    city = models.CharField(max_length=30)
+    landmark = models.CharField(max_length=20)
 
-	def __str__(self):
-		return f'{self.user.username} billing address'
+    def __str__(self):
+    	return f'{self.user.username} billing address'
 
-	class Meta:
-		verbose_name_plural = "Billing Addresses"
+    class Meta:
+    	verbose_name_plural = "Billing Addresses"
+
 ```
+
 ```
 
 </div>Now It’s time to create the form using `<strong>Django Forms</strong>` but don’t forget to migrate the database cause we have created a new model. We can create the separate file to create the forms but for now we are making the form in **`models.py`** file. You can create the `forms.py` file add use this codes.
@@ -103,30 +108,33 @@ from django.contrib.auth import get_user_model
 # Create your models here.
 
 # Get the user model
+
 User = get_user_model()
 
 class BillingAddress(models.Model):
 
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	address = models.CharField(max_length=100)
-	zipcode = models.CharField(max_length=50)
-	city = models.CharField(max_length=30)
-	landmark = models.CharField(max_length=20)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=50)
+    city = models.CharField(max_length=30)
+    landmark = models.CharField(max_length=20)
 
-	def __str__(self):
-		return f'{self.user.username} billing address'
+    def __str__(self):
+    	return f'{self.user.username} billing address'
 
-	class Meta:
-		verbose_name_plural = "Billing Addresses"
-
+    class Meta:
+    	verbose_name_plural = "Billing Addresses"
 
 # Address Form
+
 class BillingForm(ModelForm):
 
-	class Meta:
-		model = BillingAddress
-		fields = ['address', 'zipcode', 'city', 'landmark']
+    class Meta:
+    	model = BillingAddress
+    	fields = ['address', 'zipcode', 'city', 'landmark']
+
 ```
+
 ```
 
 </div>To make it simple and easy to understand, we are using just text fields but you can use ajax or some JavaScript library to make the Country fields and corresponding states fields. Now it’s time to show the form on the web page.
@@ -139,16 +147,18 @@ So to show the form on the checkout page we need to create the checkout view and
 <pre class="prism line-numbers lang-python" data-lang="Python">```
 def checkout(request):
 
-	# Checkout view
-	form = BillingForm
-	
-	order_qs = Order.objects.filter(user= request.user, ordered=False)
-	order_items = order_qs[0].orderitems.all()
-	order_total = order_qs[0].get_totals() 
-	context = {"form": form, "order_items": order_items, "order_total": order_total}
-	
-	return render(request, 'checkout/index.html', context)
+    # Checkout view
+    form = BillingForm
+
+    order_qs = Order.objects.filter(user= request.user, ordered=False)
+    order_items = order_qs[0].orderitems.all()
+    order_total = order_qs[0].get_totals()
+    context = {"form": form, "order_items": order_items, "order_total": order_total}
+
+    return render(request, 'checkout/index.html', context)
+
 ```
+
 ```
 
 </div>Now we have to create a templates directory in the checkout app and create a new folder called as the same name of your app. Create a new HTML file called index.html and paste this lines of codes. (Better would be if you write these lines of code by yourself instead of pasting)
@@ -182,11 +192,15 @@ INSTALLED_APPS = [
     'checkout',
     'products',
     'crispy_forms',
+
 ]
 
 # Template Pack initilization
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 ```
+
 ```
 
 </div><div class="hcb_wrap">```
@@ -235,11 +249,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
           </div>
       </div>
     </div>
+
   </div>
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>It’s time to add the view in urls.py so first create the urls.py file in checkout app and then write this codes.
@@ -252,9 +269,11 @@ from . views import checkout
 app_name = "checkout"
 
 urlpatterns = [
-	path('checkout/', checkout, name="index"),
+path('checkout/', checkout, name="index"),
 ]
+
 ```
+
 ```
 
 </div>We need to add the urls to main urls.py file we have in our project directory.
@@ -267,20 +286,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
- 	path('', include('products.urls', namespace='mainapp')),
- 	path('', include('checkout.urls', namespace='checkout')),
-  path('admin/', admin.site.urls),
-  path('accounts/', include('allauth.urls')),
+path('', include('products.urls', namespace='mainapp')),
+path('', include('checkout.urls', namespace='checkout')),
+path('admin/', admin.site.urls),
+path('accounts/', include('allauth.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 ```
+
 ```
 
 </div>Everything is fine for now we should see the forms in our checkout page. Before run the server just link the checkout page in cart view page we created in the last part. I hope you can easily do this.
 
 After run the server it will look like this.
 
-<figure class="wp-block-image">![Checout page Django ecommerce tutorial manascode.com](https://manascode.com/wp-content/uploads/2019/10/chcekot-page-first-1024x503.jpg)<figcaption>Checkout Page</figcaption></figure>2. Save the Address to the Database and **Adding the ability to use their previously used address in the current order.** 
---------------------------------------------------------------------------------------------------------------------------
+## ![Checout page Django ecommerce tutorial manascode.com](https://manascode.com/wp-content/uploads/2019/10/chcekot-page-first-1024x503.jpg)<figcaption>Checkout Page</figcaption></figure>2. Save the Address to the Database and **Adding the ability to use their previously used address in the current order.**
 
 This step this quite complected so carefully read the step. First we need to save the from data but we also need to show saved address for the next time when then purchase something from our website. Second we have to update the previous address if they have, we don’t want to a user have multiple shipping address in our database. So having this functionality here is the code for the checkout view.
 
@@ -288,43 +308,46 @@ This step this quite complected so carefully read the step. First we need to sav
 <pre class="prism line-numbers lang-python" data-lang="Python">```
 def checkout(request):
 
-	# Checkout view
-	form = BillingForm
-	
-	order_qs = Order.objects.filter(user= request.user, ordered=False)
-	order_items = order_qs[0].orderitems.all()
-	order_total = order_qs[0].get_totals() 
-	context = {"form": form, "order_items": order_items, "order_total": order_total}
-	# Getting the saved saved_address
-	saved_address = BillingAddress.objects.filter(user = request.user)
-	if saved_address.exists():
-		savedAddress = saved_address.first()
-		context = {"form": form, "order_items": order_items, "order_total": order_total, "savedAddress": savedAddress}
-	if request.method == "POST":
-		saved_address = BillingAddress.objects.filter(user = request.user)
-		if saved_address.exists():
+    # Checkout view
+    form = BillingForm
 
-			savedAddress = saved_address.first()
-			form = BillingForm(request.POST, instance=savedAddress)
-			if form.is_valid():
-				billingaddress = form.save(commit=False)
-				billingaddress.user = request.user
-				billingaddress.save()
-		else:
-			form = BillingForm(request.POST)
-			if form.is_valid():
-				billingaddress = form.save(commit=False)
-				billingaddress.user = request.user
-				billingaddress.save()
-				
-	return render(request, 'checkout/index.html', context)
+    order_qs = Order.objects.filter(user= request.user, ordered=False)
+    order_items = order_qs[0].orderitems.all()
+    order_total = order_qs[0].get_totals()
+    context = {"form": form, "order_items": order_items, "order_total": order_total}
+    # Getting the saved saved_address
+    saved_address = BillingAddress.objects.filter(user = request.user)
+    if saved_address.exists():
+    	savedAddress = saved_address.first()
+    	context = {"form": form, "order_items": order_items, "order_total": order_total, "savedAddress": savedAddress}
+    if request.method == "POST":
+    	saved_address = BillingAddress.objects.filter(user = request.user)
+    	if saved_address.exists():
+
+    		savedAddress = saved_address.first()
+    		form = BillingForm(request.POST, instance=savedAddress)
+    		if form.is_valid():
+    			billingaddress = form.save(commit=False)
+    			billingaddress.user = request.user
+    			billingaddress.save()
+    	else:
+    		form = BillingForm(request.POST)
+    		if form.is_valid():
+    			billingaddress = form.save(commit=False)
+    			billingaddress.user = request.user
+    			billingaddress.save()
+
+    return render(request, 'checkout/index.html', context)
+
 ```
+
 ```
 
 </div>Now it’s time to Adding Stripe as a Payment gateway to make their payment.
 
- 3. Adding Stripe as a Payment gateway to make their payment 
--------------------------------------------------------------
+3.  Adding Stripe as a Payment gateway to make their payment
+
+---
 
 Adding stripe is too easy than the other functionality we have created in our **eCommerce website in Django.** So first of all we need install the Stripe package in our project.
 
@@ -356,20 +379,21 @@ import stripe
 from django.conf import settings
 
 def payment(request):
-	key = settings.STRIPE_PUBLISHABLE_KEY
-	order_qs = Order.objects.filter(user= request.user, ordered=False)
-	order_total = order_qs[0].get_totals() 
-	totalCents = float(order_total * 100);
-	total = round(totalCents, 2)
-	if request.method == 'POST':
-		charge = stripe.Charge.create(amount=total,
-            currency='usd',
-            description=order_qs,
-            source=request.POST['stripeToken'])
-		
-        
-	return render(request, 'checkout/payment.html', {"key": key, "total": total})
+key = settings.STRIPE_PUBLISHABLE_KEY
+order_qs = Order.objects.filter(user= request.user, ordered=False)
+order_total = order_qs[0].get_totals()
+totalCents = float(order_total \* 100);
+total = round(totalCents, 2)
+if request.method == 'POST':
+charge = stripe.Charge.create(amount=total,
+currency='usd',
+description=order_qs,
+source=request.POST['stripeToken'])
+
+return render(request, 'checkout/payment.html', {"key": key, "total": total})
+
 ```
+
 ```
 
 </div>We need to import the settings and Stripe first. Then we are using `stripe.Charge` functions to charge the user. We are going to use Stripe Payment which is already made by Stripe to make our work flow simple and easier.
@@ -386,10 +410,12 @@ from . views import checkout, payment
 app_name = "checkout"
 
 urlpatterns = [
-	path('checkout/', checkout, name="index"),
-	path('payment/', payment, name="payment"),
+path('checkout/', checkout, name="index"),
+path('payment/', payment, name="payment"),
 ]
+
 ```
+
 ```
 
 </div>Now create a new HTML file for **`payment.html`** and now paste this codes.
@@ -415,7 +441,9 @@ urlpatterns = [
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>To make things much clear to you we are going to create a new function called charge and which will going to handle the payment and let us know that the payment is successful or not.
@@ -447,6 +475,7 @@ def charge(request):
 		return render(request, 'checkout/charge.html')
 
 ```
+
 ```
 
 </div>In this charge function first we are getting the order object that the requested has. Then we are getting the order total to set the charge amount. Remember one thing that the charge amount should be an Integer value not floating value.
@@ -456,11 +485,12 @@ Strite charge the values in cents so we are converting the total amount to cents
 Again we are using the Charge method from stripe to charge the user.
 
 4. Handling the successful payment.
------------------------------------
 
-To check the payment is successful or not you can print the `charge ` to see the details or you can check the stripe dashboard under payments. It should look like this.
+---
 
-<figure class="wp-block-image">![Django tutorials manascode](https://manascode.com/wp-content/uploads/2019/10/STRIPE-PAYMENT-SUCCESFUL-1024x188.jpg)</figure>After the successful payment we have to mark the order as `<strong>True</strong>` that we have by default **`False`**. But we also need to make an order ID to allow the user to track their order status. And we have to store the payment id that will going to return after the Charge methods.
+To check the payment is successful or not you can print the `charge` to see the details or you can check the stripe dashboard under payments. It should look like this.
+
+![Django tutorials manascode](https://manascode.com/wp-content/uploads/2019/10/STRIPE-PAYMENT-SUCCESFUL-1024x188.jpg)</figure>After the successful payment we have to mark the order as `<strong>True</strong>` that we have by default **`False`**. But we also need to make an order ID to allow the user to track their order status. And we have to store the payment id that will going to return after the Charge methods.
 
 Another thing we wanted to do is mark the Cart Items as purchased. So first we are just making the order as True. Now the next step is creating the unique ID, so we are using **`get_random_string`** from **`django.utils.crypto`** to generate the random string. After that we are saving the order object.
 
@@ -480,13 +510,16 @@ We are just saving the order object and cart objects then render the **`charge.h
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>I made a button to go to the My Order Page where I basically show all the orders they have.
 
-5. Showing all the Order they have 
------------------------------------
+5. Showing all the Order they have
+
+---
 
 To show all the order the user has, we need a view for that so let’s create a view called **`oderView`**. Here is the all code for the new view.
 
@@ -495,16 +528,18 @@ To show all the order the user has, we need a view for that so let’s create a 
 
 def oderView(request):
 
-	try:
-		orders = Order.objects.filter(user=request.user, ordered=True)
-		context = {
-			"orders": orders
-		}
-	except:
-		messages.warning(request, "You do not have an active order")
-		return redirect('/')
-	return render(request, 'checkout/order.html', context)
+    try:
+    	orders = Order.objects.filter(user=request.user, ordered=True)
+    	context = {
+    		"orders": orders
+    	}
+    except:
+    	messages.warning(request, "You do not have an active order")
+    	return redirect('/')
+    return render(request, 'checkout/order.html', context)
+
 ```
+
 ```
 
 </div>In this view we are using try and except to handle the errors. Now create new html file to show the order they have. In our case we are calling as **`order.html`**
@@ -559,12 +594,14 @@ def oderView(request):
 </div>
 
 {% endblock %}
+
 ```
+
 ```
 
 </div>After all these successfully done. The website should look like this.
 
-<figure class="wp-block-image">![Order manascode.com](https://manascode.com/wp-content/uploads/2019/10/order-manascode-1024x454.jpg)</figure> We are using a lots of Function based views but I think that would help you understand the logic in much easier way. But don’t worry we are going to convert this into Class Based View soon. You can take the challenge to convert these function based view to Class based views and make a pull request our Github repo.
+![Order manascode.com](https://manascode.com/wp-content/uploads/2019/10/order-manascode-1024x454.jpg)</figure> We are using a lots of Function based views but I think that would help you understand the logic in much easier way. But don’t worry we are going to convert this into Class Based View soon. You can take the challenge to convert these function based view to Class based views and make a pull request our Github repo.
 
 To get more clear reference make sure you clone the or fork the repo to you github.
 

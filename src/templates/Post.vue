@@ -6,30 +6,33 @@
       </h1>
 
       <PostMeta :post="$page.post" />
-
     </div>
 
     <div class="post content-box">
       <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <g-image
+          alt="Cover image"
+          v-if="$page.post.cover_image"
+          :src="$page.post.cover_image"
+        />
       </div>
-
+      <Advertisement />
       <div class="post__content" v-html="$page.post.content" />
 
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
-      <div class="loading"  v-if="!loading" >
-        <button @click="setLoading()" class="laodcomment">Load comments / Write comments</button>
+      <div class="loading" v-if="!loading">
+        <button @click="setLoading()" class="laodcomment">
+          Load comments / Write comments
+        </button>
       </div>
-      <Comment v-else/>
+      <Comment v-else />
     </div>
 
     <div class="post-comments">
       <!-- Add comment widgets here -->
-      <div class="post-comments">
- 
-</div>
+      <div class="post-comments"></div>
     </div>
 
     <Author class="post-author" />
@@ -37,56 +40,58 @@
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import Author from '~/components/Author.vue'
+import PostMeta from '~/components/PostMeta';
+import PostTags from '~/components/PostTags';
+import Author from '~/components/Author.vue';
+import Advertisement from '../components/Advertisement.vue';
 
 export default {
   components: {
     Author,
     PostMeta,
     PostTags,
-    Comment: () => import('~/components/Comment.vue')
+    Comment: () => import('~/components/Comment.vue'),
+    Advertisement,
   },
-  data(){
+  data() {
     return {
-      thumnail : null,
-      loading: false
-    }
+      thumnail: null,
+      loading: false,
+    };
   },
   methods: {
-    setLoading(){
-      this.loading = true
-    }
+    setLoading() {
+      this.loading = true;
+    },
   },
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.post.title,
       meta: [
         {
           name: 'description',
-          content: this.$page.post.description
+          content: this.$page.post.description,
         },
         {
           name: 'canonical',
-          href: this.$page.post.path
+          href: this.$page.post.path,
         },
         {
-          property: "og:title",
+          property: 'og:title',
           content: this.$page.post.title,
         },
         {
-          property: "og:image",
-          content : this.$page.post.social_img
+          property: 'og:image',
+          content: this.$page.post.social_img,
         },
         {
-          property : "og:description",
-          content : this.$page.post.description
-        }
-      ]
-    }
+          property: 'og:description',
+          content: this.$page.post.description,
+        },
+      ],
+    };
   },
-}
+};
 </script>
 
 <page-query>
@@ -110,13 +115,13 @@ query Post ($id: ID!) {
 </page-query>
 
 <style lang="scss">
-.loading{
+.loading {
   width: 100%;
   text-align: center;
   padding: 20px 0px;
   margin-top: 20px;
 }
-.laodcomment{
+.laodcomment {
   padding: 10px 15px;
 }
 .post-title {
@@ -125,7 +130,6 @@ query Post ($id: ID!) {
 }
 
 .post {
-
   &__header {
     width: calc(100% + var(--space) * 2);
     margin-left: calc(var(--space) * -1);
