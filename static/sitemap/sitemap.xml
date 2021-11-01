@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://manascode.com/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://manascode.com/about/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/contact/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/nuxtjs/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/digitalocean/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/docker/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/docker-compose/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/how-to-deploy-nuxt-ssr-to-digital-ocean-using-docker-compose-and-nginx/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/flutter/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/mobile-developement/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/dart/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/best-video-tutorials-for-learing-flutter-on-your-own-for-free/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/heroku/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/python/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/how-to-deploy-your-django-app-to-heroku/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%202.2/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20ecommerce/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/adding-search-filters-in-django-e-commerce-website/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/build%20a%20saas%20application%20in%20django/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/real-world-saas-application-in-django-tutorial/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/build-a-saa-s-application-in-django-3-0/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20rest%20framework/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20blog%20tutorial/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/stripe/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/stripe%20django/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/stripe-payment-gateway-integration-in-django-e-commerce-website/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/django-e-commerce-tutorial-part-two-django-allauth/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20ecommerce%20tutorial/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/django-ecommerce-website-tutorial-part-one/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/vue/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/making-rest-api-with-djago-rest-framework-and-vue-js-blog-part-3/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20blog/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20all-auth/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20authentication/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/how-to-add-authentication-or-registration-system-in-django-blog-part-2/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/how-to-create-a-basic-blog-in-django-part-one/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/privacy-policy/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/terms-and-conditions/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://manascode.com/how-to-connect-your-django-application-to-postgre-sql-using-docker/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://manascode.com/django-async-view-realworld-example-application-tutorial/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/postgresql/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%203.1/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://manascode.com/tag/django%20async%20view/</loc>
+  <lastmod>2021-11-01T15:29:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
