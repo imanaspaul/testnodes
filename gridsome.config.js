@@ -15,6 +15,14 @@ module.exports = {
 
   plugins: [
     {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'Gem', // Required
+        baseDir: './content/posts', // Where .md files are located
+        template: './src/templates/Post.vue', // Optional
+      },
+    },
+    {
       use: '@gridsome/plugin-sitemap',
       options: {
         cacheTime: 600000, // default

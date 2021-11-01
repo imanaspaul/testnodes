@@ -10,6 +10,7 @@ canonical_url: true
 description: 'In this tutorial we are going to learn how you can deploy your Nuxtjs server side renderd application to any vps with the help of docker, docker-compose and Nginx.'
 ---
 
+import Advertisement from '~/components/Advertisement.vue'
 Those who are familiar with nuxtjs ecosystem, we can say that nuxtjs is a powerful tool for building server side rendered applications. And we can esaily make our own server side rendered applications with the help of nuxtjs.
 
 But when it's comes to deploying our nuxtjs application to any vps, we need to know how to deploy it.
@@ -23,6 +24,8 @@ To deploy our nuxtjs application to DigitalOcean, we need to follow the steps be
 - Step 2: Create a docker-compose file.
 - Step 3: Create a nginx configuration file.
 - Step 4: Deploy your nuxtjs application to DigitalOcean.
+
+<Advertisement />
 
 So without further ado, let's start with the first step.
 

@@ -16,18 +16,20 @@
           :src="$page.post.cover_image"
         />
       </div>
-      <!-- <div class="post__content" v-html="$page.post.content" /> -->
-      <VueRemarkContent />
-
+      <Advertisement />
+      <div class="post__content" v-html="$page.post.content" />
+      <Advertisement />
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
+      <Advertisement />
       <div class="loading" v-if="!loading">
         <button @click="setLoading()" class="laodcomment">
           Load comments / Write comments
         </button>
       </div>
       <Comment v-else />
+      <Advertisement />
     </div>
 
     <div class="post-comments">
@@ -43,6 +45,7 @@
 import PostMeta from '~/components/PostMeta';
 import PostTags from '~/components/PostTags';
 import Author from '~/components/Author.vue';
+import Advertisement from '../components/Advertisement.vue';
 
 export default {
   components: {
@@ -50,6 +53,7 @@ export default {
     PostMeta,
     PostTags,
     Comment: () => import('~/components/Comment.vue'),
+    Advertisement,
   },
   data() {
     return {
@@ -93,19 +97,23 @@ export default {
 </script>
 
 <page-query>
-query Gem ($id: ID!) {
-  post: gem (id: $id) {
+query Post ($id: ID!) {
+  post: post (id: $id) {
     title
     path
     social_img
-    date (format: "D MMMM YYYY")
-    tags
+    date (format: "D. MMMM YYYY")
+    timeToRead
+    tags {
+      id
+      title
+      path
+    }
     description
     content
     cover_image (width: 860, blur: 10)
   }
 }
-
 </page-query>
 
 <style lang="scss">
